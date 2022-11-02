@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "RailTrak", "RailTrak\RailTrak.pyproj", "{0318D639-FB95-40D8-AA31-9E8833577DC5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0318D639-FB95-40D8-AA31-9E8833577DC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0318D639-FB95-40D8-AA31-9E8833577DC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A86F3F7B-BC2E-434F-8C6B-A4AC4C7429C3}
+	EndGlobalSection
+EndGlobal
