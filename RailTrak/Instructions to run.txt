@@ -1,0 +1,6 @@
+How to Run
+- Install Python 3.10
+- Install pywebio through pip
+- Download UserDBM.py, history_log.py, userDB.txt
+- Navigate to directory and run "python history_log.py"
+- Go to web browser and access "localhost" in your address bar
