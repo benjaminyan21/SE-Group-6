@@ -1,6 +1,7 @@
 ﻿from pywebio.input import *
-from pywebio.output import put_text
+from pywebio.output import *
 from pywebio import start_server
+from UserDBM import UserDBM
 
 def userValidation(username, password):
     with open('users.txt', 'r') as filestream:
@@ -24,12 +25,17 @@ def showLogin():
 
 def show_histlog():
     username, password = showLogin()
-    msg = userValidation(username, password)
+    userDB = UserDBM('userDB.txt')
+    #msg = userValidation(username, password)
+    msg = userDB.validate(username, password)
 
     while (msg is not None):
-        put_text(msg)
-        showLogin()
+        clear()
+        put_error(msg)
+        username, password = showLogin()
+        msg = userDB.validate(username, password)
 
-    put_text('ohyeah baby swag')
+    clear()
+    put_text('Welcome to RailTrac!')
 
 start_server(show_histlog, port=80, debug=True)
