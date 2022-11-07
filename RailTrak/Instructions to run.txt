@@ -4,3 +4,5 @@ How to Run
 - Download UserDBM.py, history_log.py, userDB.txt
 - Navigate to directory and run "python history_log.py"
 - Go to web browser and access "localhost" in your address bar
+
+For logins: You can use username "dan" and password "qwe"
