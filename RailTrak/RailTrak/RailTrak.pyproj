@@ -24,6 +24,7 @@
     <Compile Include="history_log.py" />
     <Compile Include="RailTrak.py" />
     <Compile Include="TrackDatabase.py" />
+    <Compile Include="TrackGUI.py" />
     <Compile Include="UserDBM.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
