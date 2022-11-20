@@ -9,6 +9,8 @@ from pywebio import start_server
 
 def Selection():
 
+    clear()
+
     put_markdown(r""" # RailTrac Selection Page
 """)
 
@@ -16,8 +18,8 @@ def Selection():
     #StartingPoint = select('Starting Location?', name = ['Denver', 'Chicago'])
     #Destination = select('Destination?', name = ['NYC', 'Boston'])
 
-    StartingPoint = radio("Starting Location?", options=['Denver', 'Chicago', 'Boston', 'NYC'])
-    Destination = radio("Destination", options=['Denver', 'Chicago', 'Boston', 'Washington DC'])
+    StartingPoint = radio("Starting Location?", options=['New York City', 'Chicago', 'Boston', 'Washington DC'])
+    Destination = radio("Destination", options=['New York City', 'Chicago', 'Boston', 'Washington DC'])
 
     #return data['StartingPoint'], data['Destination']
 
@@ -50,7 +52,8 @@ def TrackGUI(StartingPoint, Destination):
     put_markdown(r""" # RailTrac Route Display
 """)
     put_row([put_button("Home", onclick=lambda: showMenu(), color='success', outline=True),
-             put_button("Logout", onclick=lambda: loginPage(), color='success', outline=True)])
+             put_button("Logout", onclick=lambda: loginPage(), color='success', outline=True),
+             put_button("Change Locations", onclick=lambda: Selection(), color='success', outline=True)])
 
     put_text('')
 
@@ -63,7 +66,10 @@ def TrackGUI(StartingPoint, Destination):
     #image of west coast
     #put_image('https://www.up.com/cs/groups/public/@uprr/@corprel/documents/digitalmedia/omhq17a129812003487.gif')
 
-    put_image('https://www.railwayage.com/wp-content/uploads/2021/04/Amtrak-Map-1024x576.jpg')
+    put_image('https://www.railwayage.com/wp-content/uploads/2021/06/Amtrak-2035.jpg')
+    
+    #big image
+    #put_image('https://www.railwayage.com/wp-content/uploads/2021/04/Amtrak-Map-1024x576.jpg')
     
     
     #put_image('https://understandingsocietyglobaledition.files.wordpress.com/2011/08/photo-12.png')
@@ -104,12 +110,57 @@ def ZoomIn(StartingPoint, Destination):
     #image of west coast
     #put_image('https://www.up.com/cs/groups/public/@uprr/@corprel/documents/digitalmedia/omhq17a129812003487.gif')
 
+
+    #If Starting point is BOSTON
     if StartingPoint == 'Boston':
        if Destination == 'Washington DC':
         put_image('https://www.amtrak.com/content/dam/projects/dotcom/english/public/images/nec/northeast-corridor-map.jpg/_jcr_content/renditions/original')
+        
+       if Destination == 'Chicago':
+         put_image('https://upload.wikimedia.org/wikipedia/commons/1/1d/Amtrak_Lake_Shore_Limited.svg')
 
-    #Big image
-    #put_image('https://understandingsocietyglobaledition.files.wordpress.com/2011/08/photo-12.png')
+       if Destination == 'New York City':
+        put_image('https://www.amtrak.com/content/dam/projects/dotcom/english/public/images/nec/northeast-corridor-map.jpg/_jcr_content/renditions/original')
+
+
+        #If Starting point is WASHINGTON DC
+    if StartingPoint == 'Washington DC':
+       if Destination == 'Boston':
+        put_image('https://www.amtrak.com/content/dam/projects/dotcom/english/public/images/nec/northeast-corridor-map.jpg/_jcr_content/renditions/original')
+
+       if Destination == 'New York City':
+        put_image('https://www.amtrak.com/content/dam/projects/dotcom/english/public/images/nec/northeast-corridor-map.jpg/_jcr_content/renditions/original')
+
+       if Destination == 'Chicago':
+            put_image('https://upload.wikimedia.org/wikipedia/commons/0/04/Amtrak_Capitol_Limited.png')
+
+
+        #If Starting point is CHICAGO
+    if StartingPoint == 'Chicago':
+        if Destination == 'New York City':
+         put_image('https://upload.wikimedia.org/wikipedia/commons/1/1d/Amtrak_Lake_Shore_Limited.svg')
+         
+        if Destination == 'Boston':
+          put_image('https://upload.wikimedia.org/wikipedia/commons/1/1d/Amtrak_Lake_Shore_Limited.svg')
+
+        if Destination == 'Washington DC':
+            put_image('https://upload.wikimedia.org/wikipedia/commons/0/04/Amtrak_Capitol_Limited.png')
+
+
+    #If Starting point is NEW YORK CITY
+    if StartingPoint == 'New York City':
+        if Destination == 'Chicago':
+          put_image('https://upload.wikimedia.org/wikipedia/commons/1/1d/Amtrak_Lake_Shore_Limited.svg')
+
+        if Destination == 'Boston':
+          put_image('https://www.amtrak.com/content/dam/projects/dotcom/english/public/images/nec/northeast-corridor-map.jpg/_jcr_content/renditions/original')
+
+        if Destination == 'Washington DC':
+          put_image('https://www.amtrak.com/content/dam/projects/dotcom/english/public/images/nec/northeast-corridor-map.jpg/_jcr_content/renditions/original')
+
+         
+
+
 
     put_markdown(r""" # Map Features
 """)
