@@ -2,7 +2,8 @@ from pywebio import *
 from pywebio.output import *
 from pywebio.input import *
 from pywebio.output import put_text
-#from history_log import showHistoryLog
+#from history_log import loginPage
+#from history_log import showMenu
 from UserDBM import UserDBM
 from pywebio import start_server
 
@@ -90,8 +91,24 @@ def DisplayRouteInfo(StartingPoint, Destination):
 
     #popup('Route information', 'Information')
 
+    #Starting in Boston
+    if StartingPoint == 'Boston':
 
-    popup('Route Information', 'Here is the information for a route from ' + StartingPoint + ' to ' + Destination + '.')
+        if Destination == 'Washington DC':
+            popup('Route Information', 'Your train will begin in ' + StartingPoint + ' and will travel through Rhode Island, Connecticut, New York, New Jersey, Deleware, and Maryland on the route to ' + Destination  )
+
+        if Destination == 'New York City':
+            popup('Route Information', 'Your train will begin in ' + StartingPoint + ' and will travel through Rhode Island, and Connecticut on the route to ' + Destination  )
+    
+            
+            
+    else:
+        popup('Route Information', 'Here is the information for a route from ' + StartingPoint + ' to ' + Destination + '.')
+
+    #Boston: 'Your train will begin in ' + StartingPoint + ' and will travel through Rhode Island, Connecticut, New York, 
+    #New Jersey, Deleware, and Maryland on the route to ' Destination 
+
+
 
 
 def ZoomIn(StartingPoint, Destination):

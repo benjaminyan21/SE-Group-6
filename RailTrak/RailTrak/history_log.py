@@ -53,6 +53,9 @@ def showMenu():
     RailTrac Menu:
     """)
     put_link('History Log',app='showHistoryLog')
+    put_button("Change Locations", onclick=lambda: Selection(), color='success', outline=True)
+
+
 
 # This function gets the login from the user and validates it against the database
 def loginPage():
