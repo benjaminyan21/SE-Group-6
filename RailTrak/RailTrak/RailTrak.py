@@ -33,3 +33,4 @@ def main():
     put_button('Delete', onclick=lambda: toast("Set to Delete"), color='success', outline=True)],
 ], cell_width='250px', cell_height='100px')
 
+main()
