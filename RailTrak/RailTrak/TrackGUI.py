@@ -56,9 +56,10 @@ def TrackGUI(StartingPoint, Destination):
              put_button("Change Locations", onclick=lambda: Selection(), color='success', outline=True)])
 
     put_text('')
+    put_text('')
 
     #Some text informing the user that their route is being displayed
-    put_text("Here is the route from " + StartingPoint + " to " + Destination)
+    put_text("                                               Here is the route from " + StartingPoint + " to " + Destination)
 
 
     put_text('')
@@ -87,7 +88,10 @@ def TrackGUI(StartingPoint, Destination):
 
 def DisplayRouteInfo(StartingPoint, Destination):
 
-    popup('Route information', 'Information')
+    #popup('Route information', 'Information')
+
+
+    popup('Route Information', 'Here is the information for a route from ' + StartingPoint + ' to ' + Destination + '.')
 
 
 def ZoomIn(StartingPoint, Destination):
@@ -100,9 +104,10 @@ def ZoomIn(StartingPoint, Destination):
              put_button("Logout", onclick=lambda: loginPage(), color='success', outline=True)])
 
     put_text('')
+    put_text('')
 
     #Some text informing the user that their route is being displayed
-    put_text("Here is the route from " + StartingPoint + " to " + Destination)
+    put_text("                                               Here is the route from " + StartingPoint + " to " + Destination)
 
 
     put_text('')
