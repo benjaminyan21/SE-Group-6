@@ -30,7 +30,7 @@ class TrackDB:
         test_path = Path()
         test_path.eta = 1.5
         test_path.route = ['Dallas', 'Austin', 'Houstin']
-        return 0
+        return test_path
 
 db = TrackDB()
 db.addStation('San Francisco')
