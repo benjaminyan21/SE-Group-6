@@ -23,6 +23,7 @@ def loginPage():
 
 # Define the login function to show and receive input from user
 def showLogin():
+    clear()
     login = input_group("RailTrac Login", [
         input('Username', name='username'),
         input('Password', name='pass', type=PASSWORD)])
@@ -38,3 +39,20 @@ def showMenu():
     put_link('Find a Route',app='Selection')
     put_text('')
     put_link('History Log',app='showHistoryLog')
+
+# This functions allows for new users to register for the service
+def newUserRegister():
+    clear()
+    put_row([put_button("Home", onclick=lambda: showMenu(), color='success', outline=True),
+             put_button("Logout", onclick=lambda: loginPage(), color='success', outline=True)])
+
+    put_markdown(r""" # New User Registration
+    """)
+    userDB = UserDBM('userDB.txt')
+
+    userInfo = input_group("Enter new account information", [
+        input('Username', name='username'),
+        input('Password', name='pass', type=PASSWORD)])
+
+    message = userDB.newUser(userInfo['username'], userInfo['pass'])
+    put_text(message)
