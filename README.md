@@ -13,7 +13,8 @@ Instructions:
   > Python.exe RailTrak.p
 - open a web browser and type "localhost" as the URL. This works best on microsoft edge.
 
-These are the credentials for an existing user that can be tested.
+These are the credentials for an existing user that can be tested:
+
 Username: j
 Password: qwe
 
