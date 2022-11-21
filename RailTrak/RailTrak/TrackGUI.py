@@ -7,6 +7,9 @@ from UserDBM import UserDBM
 from pywebio import start_server
 from lloginPage import *
 import TrackDatabase as trackDB
+import Path as p
+
+
 
 
 
@@ -75,9 +78,13 @@ def TrackGUI(StartingPoint, Destination):
              put_button("Change Locations", onclick=lambda: Selection(), color='success', outline=True)])
 
 
+    #db = trackDB.TrackDB()
 
-    
+    #path = db.shortestPath(['0', '4'])
+
     put_text('')
+
+    #put_text("ETA is " + path.eta)
 
     #Some text informing the user that their route is being displayed
     put_text("Here is the route from " + StartingPoint + " to " + Destination)
