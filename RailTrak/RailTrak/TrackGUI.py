@@ -45,7 +45,7 @@ def Selection():
 
     #return data['StartingPoint'], data['Destination']
 
-    #put_link('Find fastest route?', app='TrackGUI')
+    put_link('Find fastest route?', app='TrackGUI')
 
     TrackGUI(StartingPoint, Destination)
 
@@ -78,17 +78,18 @@ def TrackGUI(StartingPoint, Destination):
              put_button("Change Locations", onclick=lambda: Selection(), color='success', outline=True)])
 
 
-    #db = trackDB.TrackDB()
-
-    #path = db.shortestPath(['0', '4'])
-
+    db = trackDB.TrackDB()
+    db.initialize();
+    print(db.station_dict)
+    path = db.shortestPath(['0', '4'])
+    print(path.eta, ' | ', path.route)
     put_text('')
 
-    #put_text("ETA is " + path.eta)
+    put_text("ETA is", path.eta)
 
     #Some text informing the user that their route is being displayed
-    put_text("Here is the route from " + StartingPoint + " to " + Destination)
-
+    put_text("Here is the route from " + StartingPoint + " to " + Destination + ":")
+    put_text(path.route)
 
     put_text('')
 
