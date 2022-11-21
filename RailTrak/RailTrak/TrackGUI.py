@@ -7,7 +7,7 @@ from UserDBM import UserDBM
 from pywebio import start_server
 from lloginPage import *
 import TrackDatabase as trackDB
-import Path as p
+from Path import Path
 
 
 
@@ -65,12 +65,13 @@ def TrackGUI(StartingPoint, Destination):
              put_button("Logout", onclick=lambda: loginPage(), color='success', outline=True),
              put_button("Change Locations", onclick=lambda: Selection(), color='success', outline=True)])
 
-
+    userDB = UserDBM('userDB.txt')
     db = trackDB.TrackDB()
     db.initialize();
-    print(db.station_dict)
+    
     path = db.shortestPath([StartingPoint, Destination])
-    print(path.eta, ' | ', path.route)
+    userDB.writeUserHistory(StartingPoint, Destination, path.eta)
+
     put_text('')
 
     put_text("ETA is", path.eta, "hours")
