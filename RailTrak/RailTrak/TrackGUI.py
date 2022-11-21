@@ -81,15 +81,21 @@ def TrackGUI(StartingPoint, Destination):
     db = trackDB.TrackDB()
     db.initialize();
     print(db.station_dict)
-    path = db.shortestPath(['0', '4'])
+    path = db.shortestPath([StartingPoint, Destination])
     print(path.eta, ' | ', path.route)
     put_text('')
 
-    put_text("ETA is", path.eta)
+    put_text("ETA is", path.eta, "hours")
 
     #Some text informing the user that their route is being displayed
-    put_text("Here is the route from " + StartingPoint + " to " + Destination + ":")
-    put_text(path.route)
+    put_text("The route from " + StartingPoint + " to " + Destination + " is:")
+
+    s = ''
+    for i in range(len(path.route)-1):
+        s += path.route[i] + ', '
+    s += path.route[len(path.route)-1]
+
+    put_text(s)
 
     put_text('')
 
