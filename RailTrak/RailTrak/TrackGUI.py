@@ -6,6 +6,8 @@ from pywebio.output import put_text
 from UserDBM import UserDBM
 from pywebio import start_server
 from lloginPage import *
+import TrackDatabase as trackDB
+
 
 
 def Selection():
@@ -56,6 +58,9 @@ def TrackGUI(StartingPoint, Destination):
              put_button("Logout", onclick=lambda: loginPage(), color='success', outline=True),
              put_button("Change Locations", onclick=lambda: Selection(), color='success', outline=True)])
 
+
+
+    
     put_text('')
 
     #Some text informing the user that their route is being displayed
@@ -88,7 +93,24 @@ def TrackGUI(StartingPoint, Destination):
 
 def DisplayRouteInfo(StartingPoint, Destination):
 
-    popup('Route information', 'Information')
+    #popup('Route information', 'Information')
+
+    #Starting in Boston
+    if StartingPoint == 'Boston':
+
+        if Destination == 'Washington DC':
+            popup('Route Information', 'Your train will begin in ' + StartingPoint + ' and will travel through Rhode Island, Connecticut, New York, New Jersey, Deleware, and Maryland on the route to ' + Destination  )
+
+        if Destination == 'New York City':
+            popup('Route Information', 'Your train will begin in ' + StartingPoint + ' and will travel through Rhode Island, and Connecticut on the route to ' + Destination  )
+    
+            
+            
+    else:
+        popup('Route Information', 'Here is the information for a route from ' + StartingPoint + ' to ' + Destination + '.')
+
+    #Boston: 'Your train will begin in ' + StartingPoint + ' and will travel through Rhode Island, Connecticut, New York, 
+    #New Jersey, Deleware, and Maryland on the route to ' Destination 
 
 
 def ZoomIn(StartingPoint, Destination):
@@ -171,8 +193,10 @@ def ZoomIn(StartingPoint, Destination):
              put_button("Zoom In", onclick=lambda: ZoomIn(StartingPoint, Destination), color='success', outline=True),
              put_button("Zoom Out", onclick=lambda: TrackGUI(StartingPoint, Destination), color='success', outline=True)])
 
-
     return()
+
+
+    
 
 # Start the RailTrac application
 # start_server([Selection], port=80, debug=True, remote_access=True)
