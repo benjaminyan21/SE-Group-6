@@ -1,2 +1,3 @@
-dan,qwe,Houston TX,2:14 PM,Dallas TX,6:52 PM,end
-abc,123,Austin TX,3:00 PM,Dallas TX,7:02 PM,end
+dan,qwe,Austin TX,Dallas TX,
+aaa,bbb,Austin TX,Dallas TX,
+abc,123,Austin TX,Dallas TX,

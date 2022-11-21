@@ -18,12 +18,8 @@ class UserDBM(object):
             for line in filestream:
                 currentLine = line.split(",")
                 if currentLine[0] == user:
-                    userHistory.departureLocation = currentLine[2]
-                    date = datetime.strptime(currentLine[3], "%I:%M %p")
-                    userHistory.departureTime = date.strftime("%I:%M %p")
-                    userHistory.arrivalLocation = currentLine[4]
-                    date = datetime.strptime(currentLine[5], "%I:%M %p")
-                    userHistory.arrivalTime = date.strftime("%I:%M %p")
+                    userHistory.departureLocation = currentLine[-3]
+                    userHistory.arrivalLocation = currentLine[-2]
             return userHistory
 
     def newUser(self, username, password):
@@ -40,22 +36,20 @@ class UserDBM(object):
         return 'New user successfully created!'
 
     def writeUserHistory(self, user, history):
-        with open(self.filename, 'w+') as filestream:
+        with open(self.filename, 'a+') as filestream:
+            filestream.seek(0)
             for line in filestream:
                 currentLine = line.split(",")
                 if (user == currentLine[0]):
-                    filestream.seek(currentLine.length())
+                    filestream.write(history[-2])
                     filestream.write(",")
-                    filestream.write(history)
+                    filestream.write(history[-1])
+                    filestream.write(",")
                     return
-                filestream.seek(filestream.readline().length)
-        return
 
 
 class UserHistory(object):
     def __init__(self, username):
         self.username = username
         self.departureLocation = ''
-        self.departureTime = ''
         self.arrivalLocation = ''
-        self.arrivalTime = ''

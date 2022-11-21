@@ -13,6 +13,10 @@ def index():
     put_link('Returning User Login', app='loginPage')
     put_text('')
     put_link('New User Registration', app='newUserRegister')
+    put_text('')
+    
+    img = open('RailTrac.png', 'rb').read()  
+    put_image(img, width='1000px')
 
 # Start the RailTrac application
 start_server([index, loginPage, newUserRegister, Selection, showHistoryLog], port=80, debug=True, remote_access=True)

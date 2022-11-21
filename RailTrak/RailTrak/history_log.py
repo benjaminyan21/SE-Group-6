@@ -20,21 +20,21 @@ def showHistoryLog():
     userDB = UserDBM('userDB.txt')
     with use_scope() as newscope:
         userHistory = userDB.readUserHistory(username)
-        put_text('Departure: ' + userHistory.departureLocation +
-                 ' (' + userHistory.departureTime + ')')
-        put_text('Arrival: ' + userHistory.arrivalLocation +
-                 ' (' + userHistory.arrivalTime + ')')
+        put_text('Departure: ' + userHistory.departureLocation)
+        put_text('Arrival: ' + userHistory.arrivalLocation)
+
+        userInfo = input_group("Info", [
+            input('Username', name='username')])
+        userDB.writeUserHistory(userInfo['username'], ["Austin TX", "Houston TX"])
 
     # Allow the user to filter through their searches by certain criteria
     filterby = select(['Filter Departure Location'], ['Dallas TX', 'Austin TX', 'Houston TX'])
-    while (True):
+    while (get_scope() == newscope):
         if (userHistory.departureLocation == filterby):
             clear(newscope)
             with use_scope() as newscope:
-                put_text('Departure: ' + userHistory.departureLocation +
-                     ' (' + userHistory.departureTime + ')')
-                put_text('Arrival: ' + userHistory.arrivalLocation +
-                     ' (' + userHistory.arrivalTime + ')')
+                put_text('Departure: ' + userHistory.departureLocation)
+                put_text('Arrival: ' + userHistory.arrivalLocation)
                 filterby = select(['Filter Departure Location'], ['Dallas TX', 'Austin TX', 'Houston TX'])
         else:
             clear(newscope)
