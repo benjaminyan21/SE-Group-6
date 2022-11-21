@@ -24,24 +24,12 @@ def Selection():
     #StartingPoint = select('Starting Location?', name = ['Denver', 'Chicago'])
     #Destination = select('Destination?', name = ['NYC', 'Boston'])
 
-    StartingPoint = radio("Starting Location?", options=['New York City', 'Chicago', 'Boston', 'Washington DC'])
+    cities = ['New York City', 'Chicago', 'Boston', 'Washington DC']
+
+    StartingPoint = radio("Starting Location?", options= cities)
     
-    if StartingPoint == 'New York City':
-
-        Destination = radio("Destination", options=['Chicago', 'Boston', 'Washington DC'])
-
-    if StartingPoint == 'Chicago':
-
-        Destination = radio("Destination", options=['New York City', 'Boston', 'Washington DC'])
-
-    if StartingPoint == 'Boston':
-
-        Destination = radio("Destination", options=['New York City', 'Chicago', 'Washington DC'])
-    
-    if StartingPoint == 'Washington DC':
-
-        Destination = radio("Destination", options=['New York City', 'Chicago', 'Boston'])
-        
+    cities.remove(StartingPoint)
+    Destination = radio("Destination", options= cities)
 
     #return data['StartingPoint'], data['Destination']
 
