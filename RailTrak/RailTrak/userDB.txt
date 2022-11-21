@@ -1,3 +1,4 @@
 dan,qwe,None,None, 0.5,
 aaa,bbb,None,None, 0.5,
 abc,123,None,None, 0.5,
+j,qwe,None,None, 0.5,New York City,Washington DC,2,
