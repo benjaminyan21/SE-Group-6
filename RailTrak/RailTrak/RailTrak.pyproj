@@ -22,6 +22,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="history_log.py" />
+    <Compile Include="Path.py" />
     <Compile Include="RailTrak.py" />
     <Compile Include="TrackDatabase.py" />
     <Compile Include="TrackGUI.py" />
