@@ -22,10 +22,12 @@ def showHistoryLog():
         userHistory = userDB.readUserHistory(username)
         put_text('Departure: ' + userHistory.departureLocation)
         put_text('Arrival: ' + userHistory.arrivalLocation)
+        minutes = float(userHistory.eta)*60
+        put_text('ETA: ' + str(minutes) + " minutes")
 
-        userInfo = input_group("Info", [
-            input('Username', name='username')])
-        userDB.writeUserHistory(userInfo['username'], ["Austin TX", "Houston TX"])
+        #userInfo = input_group("Info", [
+        #    input('Username', name='username')])
+        #userDB.writeUserHistory("Austin TX", "Houston TX", 0.21)
 
     # Allow the user to filter through their searches by certain criteria
     filterby = select(['Filter Departure Location'], ['Dallas TX', 'Austin TX', 'Houston TX'])
@@ -35,6 +37,8 @@ def showHistoryLog():
             with use_scope() as newscope:
                 put_text('Departure: ' + userHistory.departureLocation)
                 put_text('Arrival: ' + userHistory.arrivalLocation)
+                minutes = float(userHistory.eta)*60
+                put_text('ETA: ' + str(minutes) + " minutes")
                 filterby = select(['Filter Departure Location'], ['Dallas TX', 'Austin TX', 'Houston TX'])
         else:
             clear(newscope)
