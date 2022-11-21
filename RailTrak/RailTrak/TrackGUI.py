@@ -146,11 +146,18 @@ def ZoomIn(StartingPoint, Destination):
     put_row([put_button("Home", onclick=lambda: showMenu(), color='success', outline=True),
              put_button("Logout", onclick=lambda: loginPage(), color='success', outline=True)])
 
+    db = trackDB.TrackDB()
+    db.initialize();
+    print(db.station_dict)
+    path = db.shortestPath(['0', '4'])
+    print(path.eta, ' | ', path.route)
     put_text('')
 
-    #Some text informing the user that their route is being displayed
-    put_text("Here is the route from " + StartingPoint + " to " + Destination)
+    put_text("ETA is", path.eta)
 
+    #Some text informing the user that their route is being displayed
+    put_text("Here is the route from " + StartingPoint + " to " + Destination + ":")
+    put_text(path.route)
 
     put_text('')
 
