@@ -1,5 +1,5 @@
 # SE-Group-6
-railway tracking
+Railway Tracking System
 
 
 Click 'Start without Debugging' on RailTrak.py, this should give you the terminal popup. Leave it open while you are navigating the website.
