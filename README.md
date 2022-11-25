@@ -3,14 +3,14 @@ Railway Tracking System
 
 Instructions:
 - Have Python 3.10 or later installed
-- Have pywedio installed (pip install it).
+- Have pywebio installed (pip install it).
   For Windows this can be done through the command line with:
-  > Python.exe -m pip install pywedio
+  > Python.exe -m pip install pywebio
 - Clone this repository or download its files
 - Open the command line or windows powershell
 - Navigate to the Railtrak repository through the commandline and run RailTrak.py. 
   For windows the command will be:
-  > Python.exe RailTrak.p
+  > Python.exe RailTrak.py
 - open a web browser and type "localhost" as the URL. This works best on microsoft edge.
 
 These are test credentials for an existing user:
