@@ -6,6 +6,11 @@ from pywebio.output import put_text
 from UserDBM import UserDBM
 from pywebio import start_server
 from lloginPage import *
+import TrackDatabase as trackDB
+from Path import Path
+
+
+
 
 
 def Selection():
@@ -19,12 +24,16 @@ def Selection():
     #StartingPoint = select('Starting Location?', name = ['Denver', 'Chicago'])
     #Destination = select('Destination?', name = ['NYC', 'Boston'])
 
-    StartingPoint = radio("Starting Location?", options=['New York City', 'Chicago', 'Boston', 'Washington DC'])
-    Destination = radio("Destination", options=['New York City', 'Chicago', 'Boston', 'Washington DC'])
+    cities = ['New York City', 'Chicago', 'Boston', 'Washington DC']
+
+    StartingPoint = radio("Starting Location?", options= cities)
+    
+    cities.remove(StartingPoint)
+    Destination = radio("Destination", options= cities)
 
     #return data['StartingPoint'], data['Destination']
 
-    #put_link('Find fastest route?', app='TrackGUI')
+    put_link('Find fastest route?', app='TrackGUI')
 
     TrackGUI(StartingPoint, Destination)
 
@@ -56,11 +65,26 @@ def TrackGUI(StartingPoint, Destination):
              put_button("Logout", onclick=lambda: loginPage(), color='success', outline=True),
              put_button("Change Locations", onclick=lambda: Selection(), color='success', outline=True)])
 
+    userDB = UserDBM('userDB.txt')
+    db = trackDB.TrackDB()
+    db.initialize();
+    
+    path = db.shortestPath([StartingPoint, Destination])
+    userDB.writeUserHistory(StartingPoint, Destination, path.eta)
+
     put_text('')
 
-    #Some text informing the user that their route is being displayed
-    put_text("Here is the route from " + StartingPoint + " to " + Destination)
+    put_text("ETA is", path.eta, "hours")
 
+    #Some text informing the user that their route is being displayed
+    put_text("The route from " + StartingPoint + " to " + Destination + " is:")
+
+    s = ''
+    for i in range(len(path.route)-1):
+        s += path.route[i] + ', '
+    s += path.route[len(path.route)-1]
+
+    put_text(s)
 
     put_text('')
 
@@ -88,7 +112,24 @@ def TrackGUI(StartingPoint, Destination):
 
 def DisplayRouteInfo(StartingPoint, Destination):
 
-    popup('Route information', 'Information')
+    #popup('Route information', 'Information')
+
+    #Starting in Boston
+    if StartingPoint == 'Boston':
+
+        if Destination == 'Washington DC':
+            popup('Route Information', 'Your train will begin in ' + StartingPoint + ' and will travel through Rhode Island, Connecticut, New York, New Jersey, Deleware, and Maryland on the route to ' + Destination  )
+
+        if Destination == 'New York City':
+            popup('Route Information', 'Your train will begin in ' + StartingPoint + ' and will travel through Rhode Island, and Connecticut on the route to ' + Destination  )
+    
+            
+            
+    else:
+        popup('Route Information', 'Here is the information for a route from ' + StartingPoint + ' to ' + Destination + '.')
+
+    #Boston: 'Your train will begin in ' + StartingPoint + ' and will travel through Rhode Island, Connecticut, New York, 
+    #New Jersey, Deleware, and Maryland on the route to ' Destination 
 
 
 def ZoomIn(StartingPoint, Destination):
@@ -100,11 +141,26 @@ def ZoomIn(StartingPoint, Destination):
     put_row([put_button("Home", onclick=lambda: showMenu(), color='success', outline=True),
              put_button("Logout", onclick=lambda: loginPage(), color='success', outline=True)])
 
+    db = trackDB.TrackDB()
+    db.initialize();
+    print(db.station_dict)
+    path = db.shortestPath([StartingPoint, Destination])
+    print(path.eta, ' | ', path.route)
     put_text('')
 
-    #Some text informing the user that their route is being displayed
-    put_text("Here is the route from " + StartingPoint + " to " + Destination)
+    put_text("ETA is", path.eta, "hours")
 
+    #Some text informing the user that their route is being displayed
+    put_text("The route from " + StartingPoint + " to " + Destination + " is:")
+
+    s = ''
+    for i in range(len(path.route)-1):
+        s += path.route[i] + ', '
+    s += path.route[len(path.route)-1]
+
+    put_text(s)
+
+    put_text('')
 
     put_text('')
 
@@ -171,8 +227,10 @@ def ZoomIn(StartingPoint, Destination):
              put_button("Zoom In", onclick=lambda: ZoomIn(StartingPoint, Destination), color='success', outline=True),
              put_button("Zoom Out", onclick=lambda: TrackGUI(StartingPoint, Destination), color='success', outline=True)])
 
-
     return()
+
+
+    
 
 # Start the RailTrac application
 # start_server([Selection], port=80, debug=True, remote_access=True)
