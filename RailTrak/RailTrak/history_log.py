@@ -10,7 +10,7 @@ from lloginPage import *
 def showHistoryLog():
     clear()
     put_row([put_button("Home", onclick=lambda: showMenu(), color='success', outline=True),
-             put_button("Logout", onclick=lambda: loginPage(), color='success', outline=True)])
+             put_button("Logout", onclick=lambda: logoutPage(), color='success', outline=True)])
     put_markdown(r""" # RailTrac History Log
     """)
     f = open("currentUser.txt", "r")
@@ -25,21 +25,28 @@ def showHistoryLog():
         minutes = float(userHistory.eta)*60
         put_text('ETA: ' + str(minutes) + " minutes")
 
-        #userInfo = input_group("Info", [
-        #    input('Username', name='username')])
-        #userDB.writeUserHistory("Austin TX", "Houston TX", 0.21)
-
     # Allow the user to filter through their searches by certain criteria
-    filterby = select(['Filter Departure Location'], ['Dallas TX', 'Austin TX', 'Houston TX'])
+    #filterby = 
+    put_select('in1', ['Dallas TX', 'Austin TX', 'Houston TX'], label='Filter Departure Location')
+    put_buttons(['Submit'], lambda _: put_historyLog())
+    put_buttons(['Test User History'], lambda _: userDB.writeUserHistory('Austin TX', 'Dallas TX', 0.5))
     while (get_scope() == newscope):
-        if (userHistory.departureLocation == filterby):
+        put_buttons(['Submit'], lambda _: put_historyLog())
+        if (userHistory.departureLocation == pin.in1):
             clear(newscope)
             with use_scope() as newscope:
                 put_text('Departure: ' + userHistory.departureLocation)
                 put_text('Arrival: ' + userHistory.arrivalLocation)
                 minutes = float(userHistory.eta)*60
                 put_text('ETA: ' + str(minutes) + " minutes")
-                filterby = select(['Filter Departure Location'], ['Dallas TX', 'Austin TX', 'Houston TX'])
+                #filterby = 
+                put_select('in1', ['Dallas TX', 'Austin TX', 'Houston TX'], label='Filter Departure Location')
         else:
             clear(newscope)
-            filterby = select(['Filter Departure Location'], ['Dallas TX', 'Austin TX', 'Houston TX'])
+            #filterby = 
+            put_select('in1', ['Dallas TX', 'Austin TX', 'Houston TX'], label='Filter Departure Location')
+            while True:
+                pin_wait_change('in1')
+
+def put_historyLog():
+    put_text(pin.in1)
