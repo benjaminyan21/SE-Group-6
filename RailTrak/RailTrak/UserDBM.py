@@ -10,7 +10,7 @@ class UserDBM(object):
                 currentLine = line.split(",")
                 if (username == currentLine[0] and password == currentLine[1].rstrip()):
                     return None
-            return 'Username or password is incorrect'
+            return 'Error: Username or password is incorrect'
 
     def readUserHistory(self, user):
         userHistory = UserHistory(user)
@@ -40,19 +40,15 @@ class UserDBM(object):
         with open("currentUser.txt", "r") as f:
             user = f.read()
             f.close()
-        with open(self.filename, 'a+') as filestream:
-            filestream.seek(0)
-            for line in filestream:
+        with open(self.filename, 'r+') as fs:
+            contents = fs.readlines()
+            for index, line in enumerate(contents):
                 currentLine = line.split(",")
                 if (user == currentLine[0]):
-                    filestream.write(startpoint)
-                    filestream.write(",")
-                    filestream.write(endpoint)
-                    filestream.write(",")
-                    filestream.write(str(eta))
-                    filestream.write(",")
-                    return
-
+                    new_string = contents[index].rstrip() + startpoint + "," + endpoint + "," + str(eta) + ",\n"
+                    contents[index] = new_string 
+            fs.seek(0)
+            fs.writelines(contents)
 
 class UserHistory(object):
     def __init__(self, username):

@@ -1,3 +1,3 @@
 dan,qwe,Austin TX,Dallas TX,0.5,
-aaa,bbb,Austin TX,Dallas TX,0.5,
-abc,123,Austin TX,Dallas TX,0.5,
+aaa,bbb,Houston TX,Dallas TX,0.5,
+abc,123,Dallas TX,Austin TX,0.5,
