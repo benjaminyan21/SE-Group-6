@@ -15,7 +15,7 @@ Instructions:
 
 These are test credentials for an existing user:
 
-- Username: j
+- Username: j OR dan
 - Password: qwe
 
 Note: If the version of the application being tested is the version uploaded before midnight on ll/20/2022
