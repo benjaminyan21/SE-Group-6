@@ -1,26 +1,28 @@
 from pywebio import *
 from pywebio.output import *
 from pywebio.input import *
+from lloginPage import *
 
-def main():
+def forgotpassword():
+    clear()
     #Page that will show after the user selects forgot password
 
     put_image('https://i.imgur.com/y682Iqt.jpg', width='150px')
 
-    #For recovery
+    #Text
     put_markdown('# Password Recovery')
-    #put_text('Enter email associated with account')
     
-    put_text('Your password will be sent to the email associated with your account')
-    input('Enter email associated with account', type=TEXT)
-
+    
+    input('Enter username associated with account', type=TEXT)
+    #Take username and search db
     
 
     #Two buttons to submit or leave the page. 
 
     put_text(' ')
     put_grid([
-    [put_button('Exit', onclick=lambda: toast("Set to Exit"), color='success', outline=False), 
-    put_button('Submit', onclick=lambda: toast("Set to Submit"), color='success', outline=True), 
-    ],
+    [put_button("Exit", onclick=lambda: index(), color='success', outline=False), 
+    put_button("Submit", onclick=lambda: forgotpassword(), color='success', outline=True),
+    ], #NEEDS CHANGE to submit and search DB for username then give password
 ], cell_width='750px', cell_height='100px')
+     
