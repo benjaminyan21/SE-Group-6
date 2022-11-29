@@ -74,13 +74,26 @@ class TrackDB:
         
     def initialize(self):
         self.addStation('New York City')
+        self.addStation('Buffalo')
+        self.addStation('Albany')
+        self.addStation('New Haven')
+        self.addStation('Philadelphia')
+        self.addStation('Clevland')
+        self.addStation('Pitsburg')
         self.addStation('Chicago')
         self.addStation('Boston')
         self.addStation('Washington DC')
 
         
-        self.addEdge('New York City', 'Boston', 1.5)
-        self.addEdge('Washington DC', 'New York City', 2)
-        self.addEdge('Chicago', 'Boston', 6)
-        self.addEdge('New York City', 'Chicago', 7)
+        self.addEdge('Chicago', 'Buffalo', 4)
+        self.addEdge('Buffalo', 'Albany', 1)
+        self.addEdge('Albany', 'Boston', 1)
+        self.addEdge('Albany', 'New York City', 1)
+        self.addEdge('Boston', 'New Haven', .5)
+        self.addEdge('New Haven', 'New York City', 1)
+        self.addEdge('New York City', 'Philadelphia', 1)
+        self.addEdge('Philadelphia', 'Washington DC', 1)
+        self.addEdge('Washington DC', 'Pitsburg', 2)
+        self.addEdge('Pitsburg', 'Clevland', 1)
+        self.addEdge('Clevland', 'Chicago', 4)
 
