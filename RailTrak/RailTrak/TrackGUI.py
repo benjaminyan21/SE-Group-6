@@ -59,8 +59,13 @@ def TrackGUI(StartingPoint, Destination):
 
     clear()
 
-    put_markdown(r""" # RailTrac Route Display
-""")
+    img = open('RailTrac.png', 'rb').read()
+    map_original = open('zoom_out_image.png', 'rb').read()
+
+    put_row([put_image(img, width='100px'),put_markdown(r""" # RailTrac Route Display
+""")], size='35% 65%')
+
+
     put_row([put_button("Home", onclick=lambda: showMenu(), color='success', outline=True),
              put_button("Logout", onclick=lambda: loginPage(), color='success', outline=True),
              put_button("Change Locations", onclick=lambda: Selection(), color='success', outline=True)])
@@ -74,38 +79,44 @@ def TrackGUI(StartingPoint, Destination):
 
     put_text('')
 
-    put_text("ETA is", path.eta, "hours")
+    put_row([put_text(''),
+             put_text(StartingPoint + " to " + Destination).style('font-size: 35px')], size='25% 75%')
+
+
+
+    put_text('')
+
+    put_row([put_text(''),
+             put_text("ETA is", path.eta, "hours").style('color: red; font-size: 20px')], size='35% 65%')
+
 
     #Some text informing the user that their route is being displayed
-    put_text("The route from " + StartingPoint + " to " + Destination + " is:")
 
     s = ''
     for i in range(len(path.route)-1):
         s += path.route[i] + ', '
     s += path.route[len(path.route)-1]
 
-    put_text(s)
+    put_text("The route from " + StartingPoint + " to " + Destination + " is: " + s).style('color: black; font-style: 10px')
 
     put_text('')
 
-    #image of west coast
-    #put_image('https://www.up.com/cs/groups/public/@uprr/@corprel/documents/digitalmedia/omhq17a129812003487.gif')
-
-    put_image('https://www.railwayage.com/wp-content/uploads/2021/06/Amtrak-2035.jpg')
-    
-    #big image
-    #put_image('https://www.railwayage.com/wp-content/uploads/2021/04/Amtrak-Map-1024x576.jpg')
-    
-    
-    #put_image('https://understandingsocietyglobaledition.files.wordpress.com/2011/08/photo-12.png')
-
-    put_markdown(r""" # Map Features
-""")
-
-    put_row([put_button("Toggle Map", onclick=lambda: toast("will change map type"), color='success', outline=True),
+    put_row([put_image(map_original, width = '1000px'),
+             put_column([put_text("Map Features").style('font-size: 30px'), 
+             put_button("Toggle Map", onclick=lambda: toast("will change map type"), color='success', outline=True),
              put_button("Route Information", onclick=lambda: DisplayRouteInfo(StartingPoint, Destination), color='success', outline=True),
-             put_button("Zoom In", onclick=lambda: ZoomIn(StartingPoint, Destination), color='success', outline=True),
-             put_button("Zoom Out", onclick=lambda: toast("You can not zoom out"), color='success', outline=True)])
+             put_button("Zoom In", onclick=lambda: ZoomIn(StartingPoint, Destination), color='success', outline=True)])], size='85% 10px 15%')
+
+
+    #put_image('https://www.railwayage.com/wp-content/uploads/2021/06/Amtrak-2035.jpg')
+    
+
+    #put_markdown(r""" # Map Features
+#""")
+
+    #put_column([put_button("Toggle Map", onclick=lambda: toast("will change map type"), color='success', outline=True),
+    #         put_button("Route Information", onclick=lambda: DisplayRouteInfo(StartingPoint, Destination), color='success', outline=True),
+     #        put_button("Zoom In", onclick=lambda: ZoomIn(StartingPoint, Destination), color='success', outline=True)])
 
 
 
@@ -136,31 +147,48 @@ def ZoomIn(StartingPoint, Destination):
 
     clear()
 
-    put_markdown(r""" # RailTrac Route Display
-""")
-    put_row([put_button("Home", onclick=lambda: showMenu(), color='success', outline=True),
-             put_button("Logout", onclick=lambda: loginPage(), color='success', outline=True)])
+    img = open('RailTrac.png', 'rb').read() 
 
+    put_row([put_image(img, width='100px'),put_markdown(r""" # RailTrac Route Display
+""")], size='35% 65%')
+
+
+    put_row([put_button("Home", onclick=lambda: showMenu(), color='success', outline=True),
+             put_button("Logout", onclick=lambda: loginPage(), color='success', outline=True),
+             put_button("Change Locations", onclick=lambda: Selection(), color='success', outline=True)])
+
+    
+    userDB = UserDBM('userDB.txt')
     db = trackDB.TrackDB()
     db.initialize();
-    print(db.station_dict)
+    
     path = db.shortestPath([StartingPoint, Destination])
-    print(path.eta, ' | ', path.route)
+    userDB.writeUserHistory(StartingPoint, Destination, path.eta)
+
     put_text('')
 
-    put_text("ETA is", path.eta, "hours")
+    put_row([put_text(''),
+             put_text(StartingPoint + " to " + Destination).style('font-size: 35px')], size='25% 75%')
+
+
+
+    put_text('')
+
+    put_row([put_text(''),
+             put_text("ETA is", path.eta, "hours").style('color: red; font-size: 20px')], size='35% 65%')
+
 
     #Some text informing the user that their route is being displayed
-    put_text("The route from " + StartingPoint + " to " + Destination + " is:")
 
     s = ''
     for i in range(len(path.route)-1):
         s += path.route[i] + ', '
     s += path.route[len(path.route)-1]
 
-    put_text(s)
+    put_text("The route from " + StartingPoint + " to " + Destination + " is: " + s).style('color: black; font-style: 10px')
 
     put_text('')
+
 
     put_text('')
 
@@ -224,7 +252,6 @@ def ZoomIn(StartingPoint, Destination):
 
     put_row([put_button("Toggle Map", onclick=lambda: toast("will change map type"), color='success', outline=True),
              put_button("Route Information", onclick=lambda: DisplayRouteInfo(StartingPoint, Destination), color='success', outline=True),
-             put_button("Zoom In", onclick=lambda: ZoomIn(StartingPoint, Destination), color='success', outline=True),
              put_button("Zoom Out", onclick=lambda: TrackGUI(StartingPoint, Destination), color='success', outline=True)])
 
     return()
