@@ -4,6 +4,14 @@ class UserDBM(object):
     def __init__(self, filename):
         self.filename = filename
 
+    def findUser(self, username):
+         with open(self.filename, 'r') as filestream:
+            for line in filestream:
+                currentLine = line.split(",")
+                if (username == currentLine[0]):
+                    return True
+            return False
+
     def validate(self, username, password):
         with open(self.filename, 'r') as filestream:
             for line in filestream:
@@ -15,12 +23,16 @@ class UserDBM(object):
     def readUserHistory(self, user):
         userHistory = UserHistory(user)
         with open(self.filename, 'r') as filestream:
+            count = 1
             for line in filestream:
-                currentLine = line.split(",")
-                if currentLine[0] == user:
-                    userHistory.departureLocation = currentLine[-4]
-                    userHistory.arrivalLocation = currentLine[-3]
-                    userHistory.eta = currentLine[-2]
+                    currentLine = line.split(",")
+                    if currentLine[0] == user:
+                        userHistory.numSearches = (int) ((len(currentLine) - 3) / 3)
+                        while (count <= userHistory.numSearches):
+                            userHistory.departureLocation.append(currentLine[-1 - 3*count])
+                            userHistory.arrivalLocation.append(currentLine[0 - 3*count])
+                            userHistory.eta.append(currentLine[1 - 3*count])
+                            count += 1
             return userHistory
 
     def newUser(self, username, password):
@@ -54,6 +66,7 @@ class UserDBM(object):
 class UserHistory(object):
     def __init__(self, username):
         self.username = username
-        self.departureLocation = ''
-        self.arrivalLocation = ''
-        self.eta = 0.0
+        self.departureLocation = []
+        self.arrivalLocation = []
+        self.numSearches = 1
+        self.eta = []

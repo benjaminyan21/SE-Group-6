@@ -1,4 +1,4 @@
-from pickle import TRUE
+#from pickle import TRUE
 from pywebio.input import *
 from pywebio.output import *
 from pywebio.pin import *
@@ -31,7 +31,7 @@ def showLogin():
     """)
 
     put_input('in1', label='Username')
-    put_input('in2', label='Password')
+    put_input('in2', label='Password', type='password')
 
     put_buttons(['Login'], lambda _: loginPage(pin.in1, pin.in2))
     cont=True
