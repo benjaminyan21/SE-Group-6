@@ -1,0 +1,9 @@
+How to Run
+- Install Python 3.10
+- Install pywebio through pip
+- Clone the git repository
+- Navigate to directory and run "python RailTrak.py"
+- Go to web browser and access "localhost" in your address bar
+- You will now be on the homepage and can access different parts of the site
+
+For logins: You can use username "abc" and password "123"

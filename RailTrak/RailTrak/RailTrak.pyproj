@@ -22,6 +22,41 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="RailTrak.py" />
+    <Compile Include="RailTrak\AdminPage.py" />
+    <Compile Include="RailTrak\forgotpassword.py" />
+    <Compile Include="RailTrak\history_log.py" />
+    <Compile Include="RailTrak\lloginPage.py" />
+    <Compile Include="RailTrak\Path.py" />
+    <Compile Include="RailTrak\RailTrak.py" />
+    <Compile Include="RailTrak\TrackDatabase.py" />
+    <Compile Include="RailTrak\TrackGUI.py" />
+    <Compile Include="RailTrak\UserDBM.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="RailTrak\" />
+    <Folder Include="RailTrak\__pycache__\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RailTrak\Boston_NewYork.PNG" />
+    <Content Include="RailTrak\currentUser.txt" />
+    <Content Include="RailTrak\Instructions to run.txt" />
+    <Content Include="RailTrak\NewYork_WDC.PNG" />
+    <Content Include="RailTrak\RailTrac.png" />
+    <Content Include="RailTrak\RailTrak.pyproj" />
+    <Content Include="RailTrak\userDB.txt" />
+    <Content Include="RailTrak\zoom_out_image.PNG" />
+    <Content Include="RailTrak\__pycache__\history_log.cpython-310.pyc" />
+    <Content Include="RailTrak\__pycache__\history_log.cpython-39.pyc" />
+    <Content Include="RailTrak\__pycache__\lloginPage.cpython-310.pyc" />
+    <Content Include="RailTrak\__pycache__\lloginPage.cpython-39.pyc" />
+    <Content Include="RailTrak\__pycache__\Path.cpython-310.pyc" />
+    <Content Include="RailTrak\__pycache__\Path.cpython-39.pyc" />
+    <Content Include="RailTrak\__pycache__\TrackDatabase.cpython-310.pyc" />
+    <Content Include="RailTrak\__pycache__\TrackDatabase.cpython-39.pyc" />
+    <Content Include="RailTrak\__pycache__\TrackGUI.cpython-310.pyc" />
+    <Content Include="RailTrak\__pycache__\TrackGUI.cpython-39.pyc" />
+    <Content Include="RailTrak\__pycache__\UserDBM.cpython-310.pyc" />
+    <Content Include="RailTrak\__pycache__\UserDBM.cpython-39.pyc" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
