@@ -85,7 +85,8 @@ class TrackDB:
         self.addStation('Washington DC')
 
         
-        self.addEdge('Chicago', 'Buffalo', 4)
+        self.addEdge('Chicago', 'Clevland', 2)
+        self.addEdge('Clevland', 'Buffalo', 2)
         self.addEdge('Buffalo', 'Albany', 1)
         self.addEdge('Albany', 'Boston', 1)
         self.addEdge('Albany', 'New York City', 1)
