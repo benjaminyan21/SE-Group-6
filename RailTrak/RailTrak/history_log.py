@@ -20,10 +20,15 @@ def showHistoryLog():
     userDB = UserDBM('userDB.txt')
     with use_scope() as newscope:
         userHistory = userDB.readUserHistory(username)
-        put_text('Departure: ' + userHistory.departureLocation)
-        put_text('Arrival: ' + userHistory.arrivalLocation)
-        minutes = float(userHistory.eta)*60
-        put_text('ETA: ' + str(minutes) + " minutes")
+        count = 0
+        while (count < userHistory.numSearches):
+            put_text('---')
+            put_text('Departure: ' + userHistory.departureLocation[count])
+            put_text('Arrival: ' + userHistory.arrivalLocation[count])
+            minutes = float(userHistory.eta[count])*60
+            put_text('ETA: ' + str(minutes) + " minutes")
+            count += 1
+        put_text('---')
 
     # Allow the user to filter through their searches by certain criteria
     #filterby = 
