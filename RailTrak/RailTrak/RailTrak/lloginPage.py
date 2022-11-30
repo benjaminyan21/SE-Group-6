@@ -28,8 +28,7 @@ def loginPage(username=None, password=None):
 
 # Define the login function to show and receive input from user
 def showLogin():
-    put_row([put_button("Home", onclick=lambda: index(), color='success', outline=True),
-             put_button('Forgot Password?', onclick=lambda: forgotpassword(), color='success', outline = True)])
+    put_row([put_button("Home", onclick=lambda: index(), color='success', outline=True)])
 
     put_markdown(r""" # RailTrac Login Page
     """)
@@ -38,7 +37,7 @@ def showLogin():
     put_input('in2', label='Password')
 
     put_buttons(['Login'], lambda _: loginPage(pin.in1, pin.in2))
-    
+    put_link('Forgot Password?',app=forgotpassword)
     cont=True
     while cont:
         pin_wait_change('in1')

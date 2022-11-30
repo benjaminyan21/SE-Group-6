@@ -5,6 +5,7 @@ from UserDBM import UserDBM
 from TrackGUI import *
 from history_log import showHistoryLog
 from lloginPage import loginPage, newUserRegister
+from forgotpassword import forgotpassword
 
 # Index / homepage of the RailTrac website
 def index():
