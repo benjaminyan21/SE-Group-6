@@ -3,6 +3,7 @@ from pywebio.input import *
 from pywebio.output import *
 from pywebio.pin import *
 from UserDBM import UserDBM
+from forgotpassword import *
 
 # This function gets the login from the user and validates it against the database
 def loginPage(username=None, password=None):
@@ -34,6 +35,7 @@ def showLogin():
     put_input('in2', label='Password', type='password')
 
     put_buttons(['Login'], lambda _: loginPage(pin.in1, pin.in2))
+    put_link('Forgot Password?',app='forgotpassword')
     cont=True
     while cont:
         pin_wait_change('in1')

@@ -46,7 +46,7 @@ class UserDBM(object):
             filestream.write(username)
             filestream.write(",")
             filestream.write(password)
-            filestream.write(',None,None, 0.5,')
+            filestream.write(",")
         return 'New user successfully created!'
 
     def writeUserHistory(self, startpoint, endpoint, eta):

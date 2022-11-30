@@ -2,16 +2,12 @@ from pywebio import *
 from pywebio.output import *
 from pywebio.input import *
 from pywebio.output import put_text
-#from history_log import showHistoryLog
 from UserDBM import UserDBM
 from pywebio import start_server
 from lloginPage import *
 import TrackDatabase as trackDB
 from Path import Path
-
-
-
-
+from AdminPage import *
 
 def Selection():
 
@@ -95,7 +91,14 @@ def TrackGUI(StartingPoint, Destination):
              put_button("Toggle Map", onclick=lambda: ToggleMap(StartingPoint, Destination), color='success', outline=True),
              put_button("Route Information", onclick=lambda: DisplayRouteInfo(StartingPoint, Destination), color='success', outline=True),
              put_button("Zoom In", onclick=lambda: ZoomIn(StartingPoint, Destination), color='success', outline=True)])], size='85% 10px 15%')
+    
+    put_markdown(r""" # Request Alternate Mode of Transportation
+    """)
+    put_link('Alternate Mode', app='altMode')
 
+    put_markdown(r""" # Admin Page
+    """)
+    put_link('Make changes (Admin Only)', app='adminPage')
 
 def ToggleMap(StartingPoint, Destination):
 
@@ -148,8 +151,6 @@ def ToggleMap(StartingPoint, Destination):
              put_button("Toggle Map", onclick=lambda: TrackGUI(StartingPoint, Destination), color='success', outline=True),
              put_button("Route Information", onclick=lambda: DisplayRouteInfo(StartingPoint, Destination), color='success', outline=True),
              put_button("Zoom In", onclick=lambda: ZoomIn(StartingPoint, Destination), color='success', outline=True)])], size='85% 10px 15%')
-
-
 
 
 def DisplayRouteInfo(StartingPoint, Destination):
