@@ -3,7 +3,7 @@ from pywebio import *
 from pywebio.output import *
 from pywebio.input import *
 
-def main():
+def altMode():
     
     #Railtrak logo
     put_image('https://i.imgur.com/y682Iqt.jpg', width='150px')
@@ -37,5 +37,3 @@ def main():
 
     #Option to go back to the history log at the bottom
     put_button('Go back to history log', onclick=lambda: toast("Going back to history log..."), color='primary', outline=True)
-
-main()
