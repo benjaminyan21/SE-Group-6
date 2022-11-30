@@ -85,7 +85,7 @@ def TrackGUI(StartingPoint, Destination):
 
     put_markdown(r""" # Admin Page
 """)
-    put_link('For Admins to make changes', app='adminPage')
+    put_link('Make changes (Admin Only)', app='adminPage')
 
 
 
