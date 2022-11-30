@@ -245,7 +245,7 @@ def ZoomIn(StartingPoint, Destination):
          zoom_map = open('Boston_DC.png', 'rb').read() 
 
        if Destination == 'New York City':
-        zoom_map = open('NewYork_WDC.png', 'rb').read() 
+        zoom_map = open('NY-WDC.jpg', 'rb').read() 
 
        if Destination == 'Chicago':
          zoom_map = open('Chicago_DC.png', 'rb').read() 
@@ -272,7 +272,7 @@ def ZoomIn(StartingPoint, Destination):
           zoom_map = open('Boston_NewYork.png', 'rb').read() 
 
         if Destination == 'Washington DC':
-          zoom_map = open('NewYork_WDC.png', 'rb').read() 
+          zoom_map = open('NY-WDC.jpg', 'rb').read() 
 
          
 
