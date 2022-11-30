@@ -3,6 +3,7 @@ from pywebio.output import *
 from pywebio.input import *
 from lloginPage import *
 
+
 def forgotpassword():
     clear()
     #Page that will show after the user selects forgot password
@@ -25,4 +26,15 @@ def forgotpassword():
     put_button("Submit", onclick=lambda: forgotpassword(), color='success', outline=True),
     ], #NEEDS CHANGE to submit and search DB for username then give password
 ], cell_width='750px', cell_height='100px')
+
+def index():
+    put_markdown(r""" # RailTrac Homepage
+    """)
+    put_link('Returning User Login', app='loginPage')
+    put_text('')
+    put_link('New User Registration', app='newUserRegister')
+    put_text('')
+    
+    img = open('RailTrac.png', 'rb').read()  
+    put_image(img, width='1000px')
      

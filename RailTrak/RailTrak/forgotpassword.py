@@ -6,7 +6,6 @@ from lloginPage import *
 def forgotpassword():
     clear()
     #Page that will show after the user selects forgot password
-    #commemnt
     put_image('https://i.imgur.com/y682Iqt.jpg', width='150px')
 
     #Text
