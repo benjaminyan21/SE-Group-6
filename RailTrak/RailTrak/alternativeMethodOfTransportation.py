@@ -35,5 +35,4 @@ def altMode():
         put_markdown('# Updated Endpoint')
         put_image('https://www.google.com/maps/vt/data=4P8KN01rpePDExBh_tfIrz7WObXPh3vx3-lxltYyLmF3QhCUXjTcbzKvsQqo0wp2W-Dnu0JUW9KxRMAEZ6FOPHEcsA4ZrjupWDD6dznm3M972IOVoFUcBB7SywMP_tSJyUU_f9fAMcUQPOKPXdMUoIkHHY8Zz1nsN6I9dHqByS4wsw,BT4PY1EHhVc8Qhv6N6cuUqs9djr1u2dEnvGzvkdLC4I9kch_j6r_YVKI11vhNVSKWjLs3KlWN7R4TrcHu5GQxP9XgqKao4wp01rKVUDYsMWtGEIlaCQeI1FRNlncdmC_UIHVVuNp7p7HZ0NPFCzjNz6iFSiGsU9TgPim-XKORwuVkuX4cCXzg5owZ_WlF1yFcXUV94Ft762qXHC-RHCoHA90K6lHmxL-LSsfhK4qXuYJWyhb3E70DvY4vk09rOaMsrn9A7exXz8nMt13B64gyEzDwwT-IUqngNV8hPxRDYivPNXs3GfnK_EG7POcxC9hx3_LOmFsaFa9lPDweWStfgG9TkWvWJpK_5FLMaH03SU?scale=1&h=200&w=652', width='1000px')
 
-    #Option to go back to the history log at the bottom
-    put_button('Go back to history log', onclick=lambda: toast("Going back to history log..."), color='primary', outline=True)
+ 
