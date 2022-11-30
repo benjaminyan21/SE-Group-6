@@ -6,7 +6,7 @@ from pywebio.output import put_text
 from UserDBM import UserDBM
 from pywebio import start_server
 from lloginPage import *
-from AdminPage import adminPage
+from AdminPage import *
 
 def Selection():
 
