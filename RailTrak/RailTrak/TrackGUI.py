@@ -6,7 +6,7 @@ from pywebio.output import put_text
 from UserDBM import UserDBM
 from pywebio import start_server
 from lloginPage import *
-
+from AdminPage import adminPage
 
 def Selection():
 
@@ -83,6 +83,9 @@ def TrackGUI(StartingPoint, Destination):
              put_button("Zoom In", onclick=lambda: ZoomIn(StartingPoint, Destination), color='success', outline=True),
              put_button("Zoom Out", onclick=lambda: toast("You can not zoom out"), color='success', outline=True)])
 
+    put_markdown(r""" # Admin Page
+""")
+    put_link('For Admins to make changes', app='adminPage')
 
 
 

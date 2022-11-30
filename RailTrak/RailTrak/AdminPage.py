@@ -1,8 +1,10 @@
-from pywebio import *
 from pywebio.output import *
 from pywebio.input import *
 
-def main():
+def adminPage():
+
+    clear()
+
     #An interactive web app that displays Admin main page
 
     '''
@@ -32,5 +34,3 @@ def main():
     put_button('Change', onclick=lambda: toast("Set to Change"), color='success', outline=True), 
     put_button('Delete', onclick=lambda: toast("Set to Delete"), color='success', outline=True)],
 ], cell_width='250px', cell_height='100px')
-
-main()
