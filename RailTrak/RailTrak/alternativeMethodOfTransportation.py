@@ -11,6 +11,7 @@ def altMode():
     
     #Railtrak logo
     put_image('https://i.imgur.com/y682Iqt.jpg', width='150px')
+    put_button("Home", onclick=lambda: showMenu(), color='success', outline=True)
 
     #Trip information displayed
     put_markdown('# Trip 1 (Houston - Dallas)')
