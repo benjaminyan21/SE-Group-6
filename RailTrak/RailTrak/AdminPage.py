@@ -19,8 +19,9 @@ def adminPage():
     put_button("Home", onclick=lambda: showMenu(), color='success', outline=True)
 
     #Hello message for admin and label for the map.
-    put_markdown('# Hello Admin')
-    put_text('Map')
+    put_markdown(r""" # RailTrac Route Display
+    """)
+    #put_text('Map')
 
     '''
     This image comes from an online source. It is a picture of the US. I am using it as a placeholder
