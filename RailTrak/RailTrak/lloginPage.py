@@ -45,9 +45,15 @@ def showLogin():
 # This function shows the main RailTrac menu from which the user can navigate to the history log
 def showMenu():
     clear()
-    put_markdown(r""" # Welcome to RailTrac!
-    RailTrac Menu:
-    """)
+
+    img = open('RailTrac_Menu.png', 'rb').read()
+
+    put_row([put_image(img, width='1000px')])
+
+    put_text('')
+    put_text('')
+
+
     put_link('Find a Route',app='Selection')
     put_text('')
     put_link('History Log',app='showHistoryLog')
@@ -81,12 +87,17 @@ def logoutPage():
 # Index / homepage of the RailTrac website
 def index():
     clear()
-    put_markdown(r""" # RailTrac Homepage
-    """)
-    put_link('Returning User Login', app='loginPage')
+
+    img = open('RailTrac_Homepage.png', 'rb').read() 
+
+    put_row([put_image(img, width='1000px')])
+
     put_text('')
-    put_link('New User Registration', app='newUserRegister')
+
+    put_row([put_button("Login", onclick=lambda: loginPage(), color='success', outline=True)], size='100% 100px')
+
     put_text('')
-    
-    img = open('RailTrac.png', 'rb').read()  
-    put_image(img, width='1000px')
+
+    put_row([put_button("New User Registration", onclick=lambda: newUserRegister(), color='success', outline=True)], size='100% 100px')
+
+    put_text('')

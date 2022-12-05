@@ -9,10 +9,17 @@ from lloginPage import *
 # departure location, departure time, arrival location, and arrival time
 def showHistoryLog():
     clear()
+    
+    img = open('RailTrac_HistoryLog.png', 'rb').read() 
+
+    put_row([put_image(img, width='1000px')])
+
+    put_text('')
+
     put_row([put_button("Home", onclick=lambda: showMenu(), color='success', outline=True),
              put_button("Logout", onclick=lambda: logoutPage(), color='success', outline=True)])
-    put_markdown(r""" # RailTrac History Log
-    """)
+
+
     f = open("currentUser.txt", "r")
     username = f.read()
     put_text('Welcome, ' + username + '!')
