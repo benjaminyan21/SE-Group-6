@@ -2,11 +2,18 @@
 from pywebio import *
 from pywebio.output import *
 from pywebio.input import *
+from pywebio.output import put_text
+from UserDBM import UserDBM
+from pywebio import start_server
+from lloginPage import *
 
 def altMode():
     
     #Railtrak logo
     put_image('https://i.imgur.com/y682Iqt.jpg', width='150px')
+
+    put_row([put_button("Home", onclick=lambda: showMenu(), color='success', outline=True),
+             put_button("Logout", onclick=lambda: loginPage(), color='success', outline=True)])
 
     #Trip information displayed
     put_markdown('# Trip 1(Houston - Dallas)')
