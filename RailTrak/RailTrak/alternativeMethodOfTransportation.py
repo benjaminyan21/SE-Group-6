@@ -14,12 +14,12 @@ def altMode():
     put_button("Home", onclick=lambda: showMenu(), color='success', outline=True)
 
     #Trip information displayed
-    put_markdown('# Trip 1 (Houston - Dallas)')
+    put_markdown('# Trip 1 (New York - Washington D.C.)')
     put_text('Current Map Path')
     
-    #This is an image taken directly from Google Maps, might change later.
-    put_image('https://www.google.com/maps/vt/data=aVjKhmJfFHs-olDWKtwvXJmDtQa08SVqGfO6rT5duov92S7Gp3pYGDyZLWmB9LTPcnp32r66yp5J8Pdo7ruoYbPXRKEooUkAJWXliW6bQ72Tl7B-9MUin5_itHwLafk3r3oiAA-8vHyElS7Wo40UqSUaOYSM94obwP-U7mdMjopbXw,I5UyRqn7K6QjC0-4l4g8lnUevTIjMjGzXpM0ux6ROnm4w_opo4e9gmxRs_BQD2f60ikRtB_P1yqg5mFstMiz5WeRUNW-Y0wMthmTreMmBskifDhsXdPVrjunA5I038qifE2YQO0T6CoO7LAOwZ1cEc0h_VYCYyTkIbU92yyYKVValoPWIqOq27ZVcanPB1vunS4rgoh8CHojPdOGo88ldy7jHlW7WBOQeAC5irq5Ti8pqW9DDhHMhRSPXgZlSkWHbIGSciXZe3bdqwEYNdfhsI-6Vq41BsB6qC4tKu4V4Khl0U-KL60sBJsYdBvWZXsaJ8VIe0a4INd7v7DyqVfswFxLGqnVWuCfvrrhzuOm?scale=1&h=200&w=652', width='1000px')
-    put_warning('CURRENT ETA: 3 hours')
+    #Image from Google Maps
+    put_image('https://www.google.com/maps/vt/data=esIMGP_yWZtvmq3BIs44D4zbZ28oinatzo9RNHR1vWTt9r2lXg9UbgsrIKUzatQU7-sfeSJuyK-P7rCdEpOgvTM-IVBLMkETxlNXpaQXfVKNZtqbFdLYoADgcyWr5XL5X4ss1XbUS3FsQvOZno1D-aKnKduTZtqjpwcps8_stXxWJw,3YXvFr64ik4PCGhED0vkQdOilkeV-GOj9M0zOIqpO7HA63fpLSw4Pv5nrECTEh9mOoGhjRCPeR8003G7tt-UJUvLxxm_GFCk4qDGy0nR-Vvfv91C8fGiCeCOFPPmgz2TDh7J6-Kq0D5_cID85xjCyC8gQcc0aGALqSGZtiYdzYgifWeaqLPF5vhZoqeWy92pPkfIogHSC9qY5A-2TbTkPkSbI0q7tV4SENKiuweN4zwJuE54LPO6jSnXIXwSxCAhVyikEfN-dWTZxq_uXWwrn23qGzW2vGhBELck424sI24WrpgbDz0tuvYFD0YXNE7h1bAH61rQsVaTNLmCyBvs7KUFluLQSZmEU_ksbfAbRFH8Lj7CNIumQ9VB?scale=1&h=200&w=652', width='1000px')
+    put_warning('CURRENT ETA: 4 hours')
 
     #Dropbox of endpoint destination selections
     endpoint = select("Change mode of transportation", ['Semi-Trailer', 'Plane', 'Truck', 'Train', 'Cargo Van'])
